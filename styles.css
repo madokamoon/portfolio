@@ -850,28 +850,6 @@ body {
   object-fit: cover;
 }
 
-.media-placeholder {
-  display: grid;
-  place-content: center;
-  gap: 0.3rem;
-  text-align: center;
-  border-style: dashed;
-  border-color: var(--border);
-  color: var(--muted);
-}
-
-.media-placeholder .ph-icon {
-  font-family: var(--font-mono);
-  font-size: 1.3rem;
-  color: var(--border);
-}
-
-.media-placeholder .ph-text {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-}
-
 .media-card figcaption {
   color: var(--muted);
   font-size: 0.76rem;
