@@ -1,0 +1,1390 @@
+:root {
+  /* 米色底 + 黑字 */
+  --bg: #f4f1e8;
+  --bg-muted: #eae4d7;
+  --panel: #fffdf9;
+  --panel-soft: #f9f5ec;
+  --border: #ddd5c5;
+  --border-soft: #e9e2d4;
+  --text: #1c1a17;
+  --muted: #6d675c;
+  --heading: #000000;
+  /* 与简历 LaTeX 的 section-color (31,78,121) 保持一致 */
+  --accent: #1f4e79;
+  --accent-soft: rgba(31, 78, 121, 0.09);
+  --accent-line: rgba(31, 78, 121, 0.32);
+  --success: #2f7d43;
+  --warning: #96690f;
+  --shadow: 0 18px 40px rgba(60, 48, 26, 0.1);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --content-width: 1240px;
+  --font-sans: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", -apple-system,
+    sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 88% -4%, rgba(31, 78, 121, 0.05), transparent 32%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.accent {
+  color: var(--accent);
+  transition: color 0.18s ease;
+}
+
+a.accent:hover {
+  color: var(--heading);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading);
+  line-height: 1.3;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: #fffdf9;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem max(1.1rem, calc((100vw - var(--content-width)) / 2));
+  background: rgba(244, 241, 232, 0.88);
+  border-bottom: 1px solid var(--border-soft);
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.brand-text {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.brand-text strong {
+  color: var(--heading);
+  font-size: 0.97rem;
+  letter-spacing: 0.01em;
+}
+
+.brand-text span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.site-nav a {
+  padding: 0.36rem 0.7rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.79rem;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.site-nav a:hover {
+  color: var(--heading);
+  background: var(--panel);
+}
+
+.site-nav a.is-active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------- layout ---------- */
+
+/* 页面本身不滚动：左右两栏各自独立滚动。
+   窄屏（≤900px）会恢复整页滚动，见 responsive 段。 */
+body {
+  overflow: hidden;
+}
+
+.page-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-home {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 306px minmax(0, 1fr);
+  gap: 2.1rem;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1.7rem max(1.1rem, 1.4rem) 0;
+  overflow: hidden;
+}
+
+/* 左栏：个人介绍 + 项目目录，单独滚动 */
+.profile-sidebar {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 1.8rem;
+}
+
+.profile-card {
+  display: grid;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.profile-card h2 {
+  font-size: 1.22rem;
+  letter-spacing: 0.01em;
+}
+
+.profile-role {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.profile-summary {
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.profile-contact {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* dt/dd are block-level, so each pair needs its own two-column track to keep
+   the label and value on one line. */
+.profile-contact > div {
+  display: grid;
+  grid-template-columns: 4.6rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.profile-contact dd {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.77rem;
+  /* break-all would split the Chinese city name mid-word; anywhere only kicks
+     in for long unbroken strings like the email address */
+  overflow-wrap: anywhere;
+}
+
+/* :not(.accent) keeps this from out-specifying a.accent, which would strip the
+   link colour off the email and profile links. */
+.profile-contact a:not(.accent) {
+  color: var(--muted);
+  transition: color 0.18s ease;
+}
+
+.profile-contact a:not(.accent):hover {
+  color: var(--accent);
+}
+
+.contact-key {
+  color: var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.77rem;
+}
+
+/* 左栏的目录块（教育经历 / 项目目录）：与右栏滚动双向联动 */
+.side-index {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.side-index-title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.side-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.08rem;
+}
+
+.side-index-list a {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.35rem;
+  align-items: baseline;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.36;
+  transition: color 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+.side-index-list .idx-num {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--muted);
+  transition: color 0.16s ease;
+}
+
+.side-index-list a:hover {
+  color: var(--text);
+  background: var(--panel-soft);
+}
+
+.side-index-list a.is-active {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+.side-index-list a.is-active .idx-num {
+  color: var(--accent);
+}
+
+/* 目录里的二级列表：8 个项目挂在「02 项目」下面 */
+.side-index-sublist {
+  list-style: none;
+  display: grid;
+  gap: 0.02rem;
+  margin: 0.14rem 0 0.32rem;
+  padding-left: 1.1rem;
+}
+
+.side-index-sublist a {
+  padding: 0.22rem 0.4rem;
+  font-size: 0.75rem;
+  line-height: 1.42;
+}
+
+.side-index-sublist .idx-num {
+  font-size: 0.62rem;
+}
+
+/* 二级列表里的小组标签（实习项目 / 个人项目），不是链接 */
+.side-index-group {
+  margin: 0.42rem 0 0.1rem;
+  padding-left: 0.4rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.06em;
+}
+
+.side-index-group:first-child {
+  margin-top: 0;
+}
+
+/* 二级项激活时只变色、不铺底，免得和父级「项目」的高亮块叠成两层 */
+.side-index-sublist a.is-active {
+  background: transparent;
+  border-color: transparent;
+  color: var(--accent);
+}
+
+.content-column {
+  display: grid;
+  gap: 2.6rem;
+  min-width: 0;
+  align-content: start;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 3rem;
+}
+
+/* 两栏共用的细滚动条 */
+.profile-sidebar::-webkit-scrollbar,
+.content-column::-webkit-scrollbar {
+  width: 10px;
+}
+
+.profile-sidebar::-webkit-scrollbar-track,
+.content-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.profile-sidebar::-webkit-scrollbar-thumb,
+.content-column::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 3px solid transparent;
+  border-radius: 10px;
+  background-clip: content-box;
+}
+
+.profile-sidebar::-webkit-scrollbar-thumb:hover,
+.content-column::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  scroll-margin-top: 1.2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.project-card {
+  scroll-margin-top: 1.2rem;
+}
+
+/* 项目区分组标题：实习项目 / 个人项目 */
+.project-group {
+  margin: 0.2rem 0 -0.35rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.section-heading h1 {
+  font-size: 1.85rem;
+  letter-spacing: -0.01em;
+}
+
+.section-heading h2 {
+  font-size: 1.42rem;
+  letter-spacing: -0.005em;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  max-width: 62ch;
+}
+
+/* ---------- overview ---------- */
+
+.overview-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.overview-panel {
+  padding: 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.panel-head h2 {
+  font-size: 1.02rem;
+}
+
+.panel-head span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.highlight-card {
+  padding: 0.9rem;
+  background: var(--panel-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+}
+
+.highlight-value {
+  color: var(--heading);
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* 第一张卡的内容是四个方向名而不是数字，用列表字号避免撑破卡片 */
+.highlight-value.is-list {
+  font-size: 1rem;
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+.highlight-label {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 0.75rem;
+}
+
+.repo-card {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  padding: 0.95rem;
+  background: var(--panel-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.repo-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-2px);
+}
+
+.repo-card-featured {
+  grid-column: 1 / -1;
+  border-color: var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(31, 78, 121, 0.05),
+    var(--panel-soft) 55%
+  );
+}
+
+.repo-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.repo-name {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.87rem;
+  font-weight: 500;
+}
+
+.repo-name:hover {
+  text-decoration: underline;
+}
+
+.repo-flag {
+  flex: none;
+  padding: 0.14rem 0.48rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.repo-description {
+  color: var(--text);
+  font-size: 0.83rem;
+  line-height: 1.66;
+}
+
+.repo-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.repo-meta-list li {
+  padding: 0.13rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgba(31, 78, 121, 0.06);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.edu-card {
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  padding: 1rem 1.1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.edu-school {
+  color: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.edu-degree {
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.edu-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+}
+
+.edu-honor {
+  margin-top: 0.28rem;
+  padding: 0.16rem 0.5rem;
+  justify-self: start;
+  border-radius: var(--radius-sm);
+  background: rgba(47, 125, 67, 0.1);
+  color: var(--success);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+/* ---------- projects ---------- */
+
+.project-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+/* 简历里加绿的任务名，网页上也保持同一个绿（对齐简历 task-color RGB 27,107,60） */
+.task {
+  color: #1b6b3c;
+  font-weight: 600;
+}
+
+.cap-label.is-task {
+  color: #1b6b3c;
+}
+
+.project-card {
+  scroll-margin-top: 5rem;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.3rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.project-head {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.project-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.08rem;
+  letter-spacing: -0.005em;
+}
+
+.project-role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.project-role .accent {
+  color: var(--accent);
+}
+
+.project-lede {
+  color: var(--text);
+  font-size: 0.87rem;
+  line-height: 1.72;
+}
+
+.project-body {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.project-body li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.72;
+}
+
+.project-body li::before {
+  content: "";
+  position: absolute;
+  left: 0.16rem;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.metric-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--panel-soft);
+}
+
+.metric strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+/* 注意：项目卡里的标签是 <span>，不是 <li>；只写 li 会完全匹配不到，
+   标签就会退化成裸文字。两个都留着，防止以后改回列表写法又踩一次。 */
+.tag-row li,
+.tag-row span {
+  padding: 0.15rem 0.48rem;
+  border-radius: var(--radius-sm);
+  background: rgba(31, 78, 121, 0.06);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+/* ---------- media placeholders ---------- */
+
+.media-grid {
+  display: grid;
+  /* 素材统一一行两个 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.media-card {
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.media-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-soft);
+}
+
+.media-frame video,
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  border-style: dashed;
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.media-placeholder .ph-icon {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--border);
+}
+
+.media-placeholder .ph-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.media-card figcaption {
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* ---------- paper figures ---------- */
+
+/* Figures are light-background diagrams, so they sit on their own white plate
+   rather than the panel colour, and use contain to avoid cropping the panels
+   that carry the meaning. */
+.media-figure {
+  aspect-ratio: auto;
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+/* Cards stretch to equal height so the captions line up despite differing
+   aspect ratios. 截图类的网格现在也走「一行两个」，点开后才占满整行。 */
+.media-grid:has(.media-figure) .media-card {
+  align-content: start;
+}
+
+.media-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.figure-link {
+  display: block;
+  border-radius: var(--radius-md);
+  transition: box-shadow 0.18s ease;
+}
+
+.figure-link:hover {
+  box-shadow: 0 0 0 2px var(--accent-line);
+}
+
+.figure-credit {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
+}
+
+.figure-license {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+/* ---------- 素材卡片：一行两个 ---------- */
+
+/* 竖版素材单独一行并限宽，否则按 9:16 铺满半栏会高得离谱 */
+.media-grid:has(.media-card.is-portrait) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.media-card.is-portrait {
+  max-width: 320px;
+  justify-self: start;
+}
+
+.media-card.is-portrait .media-frame {
+  aspect-ratio: 9 / 16;
+}
+
+/* 画面可点开：光标与边框给个提示 */
+.media-frame[data-view] {
+  cursor: zoom-in;
+  transition: border-color 0.16s ease;
+}
+
+.media-frame[data-view]:hover,
+.media-frame[data-view]:focus-visible {
+  border-color: var(--accent-line);
+}
+
+/* 小格里不放原生控制条（那条控制条会带出「系统全屏」按钮），
+   只给一个播放角标，点了直接进网页全屏查看器。 */
+.media-card .media-frame:has(video)::after {
+  content: "▶";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255, 253, 248, 0.38);
+  border-radius: 50%;
+  background: rgba(6, 8, 11, 0.58);
+  color: #fffdf8;
+  font-size: 1.05rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.media-card figcaption {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.cap-label {
+  color: var(--heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cap-src {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.cap-src::before {
+  content: "简历：";
+  color: var(--border);
+}
+
+/* ---------- 网页全屏查看器 ---------- */
+
+/* 覆盖整个浏览器视口，而不是调 OS 屏幕全屏。
+   退出方式：Esc / 右上角 ✕ / 点空白处。 */
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  padding: 1.1rem max(1rem, 3vw);
+  background: rgba(10, 12, 16, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.viewer[hidden] {
+  display: none;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1.1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 253, 248, 0.32);
+  border-radius: 50%;
+  background: rgba(6, 8, 11, 0.6);
+  color: #fffdf8;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.viewer-close:hover {
+  background: rgba(6, 8, 11, 0.9);
+}
+
+.viewer-stage {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.viewer-stage video,
+.viewer-stage img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-md);
+  background: #000;
+}
+
+.viewer-cap {
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 253, 248, 0.82);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.viewer-cap b {
+  color: #fffdf8;
+}
+
+/* ---------- more projects note ---------- */
+
+.more-projects {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.05rem 1.2rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel-soft);
+}
+
+.more-projects-title {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.more-projects p:last-child {
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* ---------- publications ---------- */
+
+.pub-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pub-item {
+  display: grid;
+  gap: 0.38rem;
+  padding: 1rem 1.15rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.18s ease;
+}
+
+.pub-item:hover {
+  border-color: var(--accent-line);
+}
+
+.pub-title {
+  color: var(--heading);
+  font-size: 0.93rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.pub-title-en {
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.6;
+}
+
+.pub-venue {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.pub-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.1rem;
+}
+
+.pub-badge {
+  padding: 0.14rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.pub-foot a.accent {
+  padding: 0.14rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.pub-foot a.accent:hover {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.pub-badge.first {
+  background: rgba(31, 78, 121, 0.1);
+  color: var(--accent);
+}
+
+.pub-badge.second {
+  background: var(--panel-soft);
+  color: var(--muted);
+}
+
+.pub-badge.status {
+  background: rgba(47, 125, 67, 0.1);
+  color: var(--success);
+}
+
+/* ---------- awards ---------- */
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.7rem;
+}
+
+.award-card {
+  display: grid;
+  gap: 0.26rem;
+  align-content: start;
+  padding: 0.9rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.award-year {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.award-name {
+  color: var(--heading);
+  font-size: 0.87rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.award-event {
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.55;
+}
+
+/* ---------- stack ---------- */
+
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 0.8rem;
+}
+
+.system-card {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding: 1.1rem 1.2rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.system-card h3 {
+  font-size: 0.97rem;
+}
+
+.system-card p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.62;
+}
+
+.system-list {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+
+.system-list li {
+  position: relative;
+  padding-left: 0.95rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.system-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  padding: 1.6rem max(1.1rem, calc((100vw - var(--content-width)) / 2));
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-muted);
+}
+
+.site-footer p {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  line-height: 1.7;
+}
+
+/* ---------- reveal animation ---------- */
+
+/* Hidden only once JS confirms it can reveal them again; without this guard a
+   script failure would leave the whole page blank. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .repo-card:hover {
+    transform: none;
+  }
+  /* the glitch is a jittering, flashing element — exactly what this query is for.
+     The band stays, it just holds still. */
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1080px) {
+  .profile-home {
+    grid-template-columns: 268px minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* 窄屏放不下两栏：恢复整页滚动，取消独立滚动 */
+  body {
+    overflow: auto;
+  }
+  .page-shell {
+    height: auto;
+    min-height: 100vh;
+  }
+  .profile-home {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 1.6rem;
+    height: auto;
+    overflow: visible;
+  }
+  .profile-sidebar,
+  .content-column {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .profile-card {
+    position: static;
+  }
+  .content-column {
+    gap: 2.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14.5px;
+  }
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+  }
+  .site-nav {
+    gap: 0.15rem;
+  }
+  .site-nav a {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.75rem;
+  }
+  .section-heading h1 {
+    font-size: 1.55rem;
+  }
+  .section-heading h2 {
+    font-size: 1.26rem;
+  }
+  .profile-card,
+  .project-card,
+  .overview-panel {
+    padding: 1.05rem;
+  }
+  .repo-grid,
+  .highlight-grid,
+  .media-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

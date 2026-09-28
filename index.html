@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>郝越 Hao Yue | Embodied AI &amp; Robot Learning</title>
+    <meta
+      name="description"
+      content="郝越（Hao Yue）个人主页：具身智能算法工程师，方向涵盖 VLA 训练与部署、真机强化学习、力觉闭环与机器人世界模型。"
+    />
+    <meta name="author" content="Hao Yue" />
+    <meta property="og:title" content="郝越 Hao Yue | Embodied AI &amp; Robot Learning" />
+    <meta
+      property="og:description"
+      content="具身智能算法工程师 · VLA 训练部署 / 在线强化学习 / 力觉闭环"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260927-t" />
+    <script>
+      // Set before first paint so reveal animations never hide content when JS is off.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#overview">跳到主要内容</a>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#overview">
+          <span class="brand-text">
+            <strong>郝越 Hao Yue</strong>
+            <span>embodied ai &amp; robot learning</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="页面导航">
+          <a href="#overview" data-nav-link>概览</a>
+          <a href="#internship" data-nav-link>实习项目</a>
+          <a href="#personal" data-nav-link>个人项目</a>
+          <a href="#competition" data-nav-link>竞赛项目</a>
+          <a href="#honors" data-nav-link>荣誉</a>
+          <a href="#stack" data-nav-link>技术栈</a>
+        </nav>
+      </header>
+
+      <main class="profile-home">
+        <aside class="profile-sidebar reveal">
+          <section class="profile-card">
+            <img
+              class="profile-avatar"
+              src="assets/images/profile.jpg"
+              alt="郝越的照片"
+              width="303"
+              height="400"
+              loading="eager"
+              decoding="async"
+            />
+
+            <h2>郝越</h2>
+            <p class="profile-role">Embodied AI Algorithm Engineer</p>
+
+            <p class="profile-summary">
+              哈尔滨工业大学航天学院控制科学与工程硕士（2027 届）。在具身智能创业公司完成 VLA
+              从数据采集、训练到真机部署的全流程落地，并做过在线强化学习微调、力觉闭环与机器人
+              世界模型方向的探索，关注数据分布、模型架构与执行反馈的闭环。
+            </p>
+
+            <dl class="profile-contact">
+              <div>
+                <dt class="contact-key">Email</dt>
+                <dd><a class="accent" href="mailto:haoyuedan@foxmail.com">haoyuedan@foxmail.com</a></dd>
+              </div>
+            </dl>
+
+            <nav class="side-index" aria-label="目录">
+              <p class="side-index-title">目录</p>
+              <ol class="side-index-list">
+                <li><a href="#overview" data-nav-link><span class="idx-num">01</span><span>概览</span></a></li>
+                <li>
+                  <a href="#internship" data-nav-link><span class="idx-num">02</span><span>实习项目</span></a>
+                  <ol class="side-index-sublist">
+                    <li><a href="#project-vla-deploy" data-side-link><span class="idx-num">01</span><span>VLA 训练部署全流程</span></a></li>
+                    <li><a href="#project-online-rl" data-side-link><span class="idx-num">02</span><span>VLA + 在线强化学习微调</span></a></li>
+                    <li><a href="#project-force-vla" data-side-link><span class="idx-num">03</span><span>Force-aware VLA</span></a></li>
+                    <li><a href="#project-memory" data-side-link><span class="idx-num">04</span><span>Memory VLA 长时记忆</span></a></li>
+                    <li><a href="#project-nbv" data-side-link><span class="idx-num">05</span><span>焊缝 Next-Best-View</span></a></li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="#personal" data-nav-link><span class="idx-num">03</span><span>个人项目</span></a>
+                  <ol class="side-index-sublist">
+                    <li><a href="#project-world-model" data-side-link><span class="idx-num">01</span><span>PointFlow 世界模型</span></a></li>
+                    <li><a href="#project-loco-manip" data-side-link><span class="idx-num">02</span><span>Exo Loco-Manipulation</span></a></li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="#competition" data-nav-link><span class="idx-num">04</span><span>竞赛项目</span></a>
+                  <ol class="side-index-sublist">
+                    <li><a href="#project-robothon" data-side-link><span class="idx-num">01</span><span>挑战杯双臂操作</span></a></li>
+                  </ol>
+                </li>
+                <li><a href="#honors" data-nav-link><span class="idx-num">05</span><span>荣誉</span></a></li>
+                <li><a href="#stack" data-nav-link><span class="idx-num">06</span><span>技术栈</span></a></li>
+              </ol>
+            </nav>
+
+          </section>
+        </aside>
+
+        <div class="content-column">
+          <!-- ============ OVERVIEW ============ -->
+          <section class="section reveal" data-section id="overview">
+            <div class="section-heading">
+              <p class="eyebrow">Overview</p>
+              <h1>VLA 训练部署全链路与真机落地</h1>
+              <p>
+                从机械臂运控环境、数据采集规范、异质数据混合到策略训练与真机评测的完整链路，
+                让开源 VLA 在双臂平台上稳定跑起柔性操作与长程任务。
+              </p>
+            </div>
+
+            <div class="highlight-grid">
+              <article class="highlight-card">
+                <p class="highlight-label">VLA 后训练与能力扩展</p>
+                <p class="highlight-value is-list">RL / Force / Memory / WAM</p>
+                <p>在线强化学习、力觉闭环、长时视觉记忆、世界模型都做过</p>
+              </article>
+              <article class="highlight-card">
+                <p class="highlight-label">真机 Demo 任务</p>
+                <p class="highlight-value">7<span> 类</span></p>
+                <p>叠衣服 / 折纸盒 / 套柱 / 插孔 / 擦黑板 / 削黄瓜 / 插花</p>
+              </article>
+              <article class="highlight-card">
+                <p class="highlight-label">挑战杯 · 双臂操作算法</p>
+                <p class="highlight-value">全国第 1<span> 名</span></p>
+                <p>真机决赛 · 挑战之星｜RoboTwin 仿真赛第 2 名</p>
+              </article>
+              <article class="highlight-card">
+                <p class="highlight-label">工程能力</p>
+                <p class="highlight-value">全栈</p>
+                <p>运控 / 数采 / 训练 / 推理 / 评测全链路独立搭建</p>
+              </article>
+            </div>
+
+            <div class="section-heading" id="education" style="margin-top: 2.4rem">
+              <p class="eyebrow">Education</p>
+              <h2>教育经历</h2>
+            </div>
+
+            <div class="edu-grid">
+              <article class="edu-card">
+                <p class="edu-school">哈尔滨工业大学 Harbin Institute of Technology</p>
+                <p class="edu-degree">硕士 · 控制科学与工程</p>
+                <p class="edu-line">
+                  <span>2024.09 – 2027.06</span>
+                  <span class="place">哈尔滨，中国</span>
+                </p>
+                <p class="edu-honor">航天学院 · 研究方向 VLA / 具身智能 · 特等学业奖学金</p>
+              </article>
+
+              <article class="edu-card">
+                <p class="edu-school">哈尔滨工业大学 Harbin Institute of Technology</p>
+                <p class="edu-degree">学士 · 自动化</p>
+                <p class="edu-line">
+                  <span>2020.09 – 2024.06</span>
+                  <span class="place">哈尔滨，中国</span>
+                </p>
+                <p class="edu-honor">学分绩 94.13 · 专业排名 7% · 本校保研 · CET-6</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- ============ INTERNSHIP ============ -->
+          <section class="section reveal" data-section id="internship">
+            <div class="section-heading">
+              <p class="eyebrow">Internship</p>
+              <h2>实习项目</h2>
+              <p>在某具身智能创业公司完成的五个方向，都是真机任务。</p>
+            </div>
+
+            <article class="project-card reveal" id="project-vla-deploy">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>VLA 数采训练部署全流程</h3>
+                  <span class="repo-flag">Full-stack</span>
+                </div>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  独立从 0 到 1 搭建机械臂运控、数据采集处理、训练、推理、评估流程：基于 π0.5 和 piper 双臂，提升柔性<span class="task">[叠衣服]</span> + 长程<span class="task">[折纸盒]</span> demo 的成功率（100%）／吞吐量／流畅度，参展 2026 数字经济产业博览会。
+                </p>
+                <ul class="project-list">
+                  <li>搭建运控／数采 Docker 环境，制定数采规范，数据处理（过滤、子任务标注、速度重采样、转换），FSDP 多节点训练。</li>
+                  <li>使用剩余末端路径长度构造 progress 监督并采用 RECAP 标注动作优势；针对失败迭代补采 DAgger 数据；针对开源、自采、Rollout 与 DAgger 中的数据来源、动作质量、任务设置等条件，参考 π0.7 的多元条件标注，有效混合异质数据集；调整 MIT ／ test ／ training-time RTC + Smoothing 异步推理参数，高频线性插值，优化一致性与流畅度。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>100%</strong><span>叠衣服 / 折纸盒 成功率</span></span>
+                  <span class="metric"><strong>2 类</strong><span>柔性 + 长程任务</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>π0.5</span>
+                  <span>FSDP</span>
+                  <span>RECAP</span>
+                  <span>DAgger</span>
+                  <span>RTC</span>
+                </div>
+
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/folding.jpg">
+                          <source src="assets/videos/folding.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">叠衣服</span>
+                      <span class="cap-src">提升柔性<span class="task">[叠衣服]</span> + 长程<span class="task">[折纸盒]</span> demo 的成功率</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/box-folding.jpg">
+                          <source src="assets/videos/box-folding.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">折纸盒</span>
+                      <span class="cap-src">提升柔性<span class="task">[叠衣服]</span> + 长程<span class="task">[折纸盒]</span> demo 的成功率</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/expo.jpg">
+                          <source src="assets/videos/expo.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">2026 数字经济产业博览会</span>
+                      <span class="cap-src">参展 2026 数字经济产业博览会</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/motion-control.jpg" alt="运控" width="1600" height="918" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">运控</span>
+                      <span class="cap-src">搭建运控 / 数采 Docker 环境，制定数采规范</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/data-collection.jpg" alt="数采" width="1600" height="874" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">数采</span>
+                      <span class="cap-src">搭建运控 / 数采 Docker 环境，制定数采规范</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/progress-supervision.jpg">
+                          <source src="assets/videos/progress-supervision.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">progress 监督</span>
+                      <span class="cap-src">使用剩余末端路径长度构造 progress 监督</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/dagger.jpg">
+                          <source src="assets/videos/dagger.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">DAgger</span>
+                      <span class="cap-src">针对失败迭代补采 DAgger 数据</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/async-1.jpg" alt="异步推理 1/2" width="1600" height="900" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">异步推理 1/2</span>
+                      <span class="cap-src">调整 test / training-time RTC + Smoothing 异步推理参数</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/async-2.jpg" alt="异步推理 2/2" width="1600" height="900" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">异步推理 2/2</span>
+                      <span class="cap-src">高频线性插值，优化一致性与流畅度</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" id="project-online-rl">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>VLA + online RL 微调</h3>
+                  <span class="repo-flag">RL</span>
+                </div>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  针对 SFT 性能上限，基于 RLinf 框架和 RLToken 算法，使用约 100 episode，将 mm 级精细操作任务<span class="task">[套柱]</span>成功率从 5% 提升至 100%，并在真机／仿真中对比了 DSRL、QGF、Flow-SDE、VINE 等算法。
+                </p>
+                <ul class="project-list">
+                  <li>SFT 使用主臂动作；RL 使用 TD3 算法，Actor 输出完整动作，在 BC／PG 基础上添加 Delta／Smooth 损失。</li>
+                  <li>DAgger／Model 无缝切换；添加 Gating Head 选择性接管关键阶段；对参考／执行动作使用 RTC + Smoothing 优化，缓解控制／推理延迟带来的抖动、方便 stride=2 重采样；对损失权重、回放采样策略、奖励、折扣率等参数调优。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>5% → 100%</strong><span>套柱成功率</span></span>
+                  <span class="metric"><strong>~100</strong><span>微调 episode</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>RLinf</span>
+                  <span>RLToken</span>
+                  <span>TD3</span>
+                  <span>Gating Head</span>
+                  <span>DSRL</span>
+                  <span>VINE</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/peg-insertion.jpg">
+                          <source src="assets/videos/peg-insertion.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">套柱</span>
+                      <span class="cap-src">mm 级精细操作任务 <span class="task">[套柱]</span> 成功率从 5% 提升至 100%</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/rl-5-100.jpg" alt="5% → 100%" width="1600" height="766" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">5% → 100%</span>
+                      <span class="cap-src">约 100 episode 的在线强化学习微调</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" id="project-force-vla">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>Force VLA 设计</h3>
+                  <span class="repo-flag">Force</span>
+                </div>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  针对需要前馈控制／接触丰富的任务<span class="task">[插入插座／擦黑板／削黄瓜]</span>，在 UR 末端安装六维力传感器，构建 VLA 与导纳控制快慢双环，提升动作顺应速度、失败恢复速度、动作与接触力稳定性，避免碰撞与过载保护。
+                </p>
+                <ul class="project-list">
+                  <li>基于 π0.5 构建，将 30 帧 force history 通过 MLP 投影（零初始化）拼接到 VLM prefix，设计 MoE 结构融合 force 信息；使用实际指令位置／接触力 (p_des, F) 混合动作表示并联合去噪，把 force 同时作为 observation 和 action target。</li>
+                  <li>数采和推理阶段均在 Z 轴方向采用期望力导纳控制，记录实际指令 p_des = p_master + Δp 和经过低通滤波、执行器补偿的 F（30 Hz）；推理阶段 VLA 外环输出作为目标力 F 与指令位置 p_des，导纳内环（200 Hz）实时跟踪目标力。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>200 Hz</strong><span>导纳控制内环</span></span>
+                  <span class="metric"><strong>6 轴</strong><span>末端力 / 力矩</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>六维力 F/T</span>
+                  <span>导纳控制</span>
+                  <span>MoE</span>
+                  <span>力位混合</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/plug-insertion.jpg">
+                          <source src="assets/videos/plug-insertion.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">插入插座</span>
+                      <span class="cap-src">接触丰富的任务 [插入插座 / 擦黑板 / 削黄瓜]</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/whiteboard.jpg">
+                          <source src="assets/videos/whiteboard.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">擦黑板</span>
+                      <span class="cap-src">接触丰富的任务 [插入插座 / 擦黑板 / 削黄瓜]</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/cucumber.jpg">
+                          <source src="assets/videos/cucumber.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">削黄瓜</span>
+                      <span class="cap-src">接触丰富的任务 [插入插座 / 擦黑板 / 削黄瓜]</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/force-sensor.jpg">
+                          <source src="assets/videos/force-sensor.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">六维力传感器</span>
+                      <span class="cap-src">在 UR 末端安装六维力传感器</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" id="project-memory">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>Memory VLA 设计</h3>
+                  <span class="repo-flag">Memory</span>
+                </div>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  针对需要记忆的任务<span class="task">[按演示顺序插花]</span>，基于 π0.5 参考 NativeMEM 实现长时视觉记忆（max 25 s）。
+                </p>
+                <ul class="project-list">
+                  <li>保留当前完整视觉 tokens，将每个历史 frame 压缩为单个 token，使 Action Expert 通过原生 Attention 读取。</li>
+                  <li>采用「冻结 VLA 训练 memory tokenizer + 缓存 memory features + 任务级 VLA finetuning」两阶段流程。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>25 s</strong><span>记忆窗口</span></span>
+                  <span class="metric"><strong>1 token</strong><span>每个历史帧</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>π0.5</span>
+                  <span>NativeMEM</span>
+                  <span>Memory Tokenizer</span>
+                  <span>Temporal Attention</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card is-portrait">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/memory-flower.jpg">
+                          <source src="assets/videos/memory-flower.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label is-task">按演示顺序插花</span>
+                      <span class="cap-src">针对需要长时记忆的任务 <span class="task">[按演示顺序插花]</span></span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" id="project-nbv">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>焊缝观测 Next-Best-View 模型优化</h3>
+                  <span class="repo-flag">Perception</span>
+                </div>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  搭建 Isaac 仿真环境，参与模型架构迭代，提升无碰撞观测成功率 20%。
+                </p>
+                <ul class="project-list">
+                  <li>使用 IsaacLab 搭建焊缝仿真数据工场和评测 Benchmark，TiledCamera 并行渲染加速约 10 倍。</li>
+                  <li>通过条件消融定位视觉特征被 state／seam 绕过的 shortcut 问题，设计层级式 K/V Injection，将 MapAnything 12 层几何表征逐层注入 Action Head，并以 Focal Loss 优化长尾样本，使无碰撞观测成功率提升 20%。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>+20%</strong><span>无碰撞观测成功率</span></span>
+                  <span class="metric"><strong>~10×</strong><span>并行渲染加速</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>IsaacLab</span>
+                  <span>TiledCamera</span>
+                  <span>K/V Injection</span>
+                  <span>Focal Loss</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame media-placeholder">
+                      <span class="ph-icon">▢</span>
+                      <span class="ph-text">焊缝仿真环境 · 素材待补</span>
+                    </div>
+                    <figcaption>该项目涉及内部仿真环境，暂未放置素材。</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <!-- ============ PERSONAL ============ -->
+          <section class="section reveal" data-section id="personal">
+            <div class="section-heading">
+              <p class="eyebrow">Personal</p>
+              <h2>个人项目</h2>
+              <p>自主推进的世界模型与 Loco-Manipulation 研究。</p>
+            </div>
+
+            <article class="project-card reveal" id="project-world-model">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>以 PointFlow 为世界表征的统一世界模型</h3>
+                  <span class="repo-flag">World Model</span>
+                </div>
+                <p class="project-role">个人项目 · 2026.07 – 至今</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  针对 Ego 数据以及 Loco-Manip 任务中的视角运动问题以及空间感知的需求，将 PointMap 和 PointFlow 作为核心世界动态表示方法，统一建模 RGB、Point 与 Action，使动作生成和未来状态预测共享共享时空表示。
+                </p>
+                <ul class="project-list">
+                  <li>以 Cosmos3-Nano 为主干，保留其 RGB（Wan2.2）与 Action 分支，引入基于 MotionCrafter 的 PointMap、PointFlow 编解码分支，并通过模态路由 LoRA 进行参数高效微调。</li>
+                  <li>使用 VGGT-OMEGA 与 AllTracker 为数据生成三维伪标签，采用「仿真双模态训练、Ego／Robot 数据三模态训练、Action 四模态训练」的分阶段训练策略。</li>
+                </ul>
+<div class="metric-row">
+                  <span class="metric"><strong>4 模态</strong><span>Action 阶段训练</span></span>
+                  <span class="metric"><strong>3 类</strong><span>数据源</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>PointMap</span>
+                  <span>PointFlow</span>
+                  <span>Cosmos3-Nano</span>
+                  <span>LoRA</span>
+                  <span>VGGT-OMEGA</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/pointflow.jpg">
+                          <source src="assets/videos/pointflow.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">PointFlow</span>
+                      <span class="cap-src">以 PointFlow 为世界表征的统一世界模型</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/vggt-omega.jpg">
+                          <source src="assets/videos/vggt-omega.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">VGGT-OMEGA</span>
+                      <span class="cap-src">使用 VGGT-OMEGA 与 AllTracker 生成三维伪标签</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" id="project-loco-manip">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>基于 Exo 演示的 Loco-Manipulation 研究</h3>
+                  <span class="repo-flag">Loco-Manip</span>
+                </div>
+                <p class="project-role">个人项目 · 2026.07 – 至今</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  参考 GRAIL 数据生成管线（3D 资产 → HOI 视频 → 4D 联合优化），产出人体全身移动操作轨迹，并重定向至 G1；以 Tracking-based RL 范式，在 SONIC 基座上开展基于状态的 RL，训练多物体抓取通用策略，为统一世界模型产出演示数据。
+                </p>
+                <ul class="project-list">
+                  <li>结合轨迹跟踪与任务奖励训练多物体抓取通用策略，通过优化奖励设置把成功率提升至 70% 左右。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>~70%</strong><span>多物体抓取成功率</span></span>
+                  <span class="metric"><strong>G1</strong><span>动作重定向</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>GRAIL</span>
+                  <span>SONIC</span>
+                  <span>Tracking-based RL</span>
+                  <span>Retargeting</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/loco-manip.jpg">
+                          <source src="assets/videos/loco-manip.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">Loco-Manipulation</span>
+                      <span class="cap-src">基于 Exo 演示的 Loco-Manipulation 研究</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame" data-view>
+                      <video preload="none" playsinline muted loop poster="assets/images/posters/exo-retarget.jpg">
+                          <source src="assets/videos/exo-retarget.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">人体全身移动操作轨迹</span>
+                      <span class="cap-src">产出人体全身移动操作轨迹，并重定向至 G1</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <!-- ============ COMPETITION ============ -->
+          <section class="section reveal" data-section id="competition">
+            <div class="section-heading">
+              <p class="eyebrow">Competition</p>
+              <h2>竞赛项目</h2>
+              <p>端侧可部署的双臂操作算法，仿真与真机两条赛道。</p>
+            </div>
+
+            <article class="project-card reveal" id="project-robothon">
+              <div class="project-head">
+                <div class="project-title-row">
+                  <h3>挑战杯「端侧可部署的双臂操作算法」全国总冠军</h3>
+                  <span class="repo-flag">Competition</span>
+                </div>
+                <p class="project-role">核心技术成员 · 2025.07 – 2025.10</p>
+              </div>
+              <div class="project-body">
+                <p class="project-lede">
+                  采用模仿学习算法，完成五个抓取任务，取得 RoboTwin 仿真赛第 2 名和真机决赛全国第 1 名（挑战之星）。
+                </p>
+                <ul class="project-list">
+                  <li>使用 ZED2 双目相机配合手眼标定与 FoundationStereo 立体深度估计获取点云。</li>
+                  <li>使用 Minkowski-Engine 编码稀疏体素，接 Diffusion Policy 输出动作块；程序化演示动作，采用多种数据增强，模型参数约 50M 可端侧部署。</li>
+                </ul>
+                <div class="metric-row">
+                  <span class="metric"><strong>全国第 1</strong><span>真机决赛</span></span>
+                  <span class="metric"><strong>第 2</strong><span>RoboTwin 仿真赛</span></span>
+                  <span class="metric"><strong>50M</strong><span>端侧可部署</span></span>
+                </div>
+                <div class="tag-row">
+                  <span>Diffusion Policy</span>
+                  <span>FoundationStereo</span>
+                  <span>Minkowski-Engine</span>
+                  <span>ZED2</span>
+                </div>
+                <div class="media-grid">
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/final.jpg" alt="真机决赛" width="1477" height="1106" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">真机决赛</span>
+                      <span class="cap-src">真机决赛全国第 1 名（挑战之星）</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/solution.jpg" alt="方案" width="1600" height="898" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">方案</span>
+                      <span class="cap-src">方案：ZED2 双目相机 + 手眼标定 + FoundationStereo</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/hand-eye.jpg" alt="手眼标定" width="960" height="540" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">手眼标定</span>
+                      <span class="cap-src">配合手眼标定与 FoundationStereo 立体深度估计</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/cloud-1.jpg" alt="点云 1/2" width="1600" height="988" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">点云 1/2</span>
+                      <span class="cap-src">立体深度估计获取点云</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="media-card">
+                    <div class="media-frame media-figure" data-view>
+                      <img src="assets/images/figures/cloud-2.jpg" alt="点云 2/2" width="1600" height="994" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">点云 2/2</span>
+                      <span class="cap-src">Minkowski-Engine 编码稀疏体素</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <aside class="more-projects">
+              <p class="more-projects-title">更多</p>
+              <p>
+                以上为精选项目。实习涉及的公司与内部细节未完全展开放置，完整经历以简历为准。
+              </p>
+            </aside>
+          </section>
+
+          <!-- ============ HONORS ============ -->
+          <section class="section reveal" data-section id="honors">
+            <div class="section-heading">
+              <p class="eyebrow">Honors</p>
+              <h2>荣誉与竞赛</h2>
+              <p>国家级竞赛奖项与学业荣誉。</p>
+            </div>
+
+            <div class="award-grid">
+              <article class="award-card">
+                <p class="award-year">2025</p>
+                <p class="award-name">国家总冠军 · 挑战之星</p>
+                <p class="award-event">
+                  挑战杯挑战赛“端侧可部署的双臂操作算法设计” · 真机决赛全国第 1 名 ·
+                  RoboTwin 仿真赛第 2 名
+                </p>
+              </article>
+              <article class="award-card">
+                <p class="award-year">2025</p>
+                <p class="award-name">省级金奖</p>
+                <p class="award-event">中国国际大学生创新创业大赛</p>
+              </article>
+              <article class="award-card">
+                <p class="award-year">2024</p>
+                <p class="award-name">特等学业奖学金</p>
+                <p class="award-event">哈尔滨工业大学 · 研究生</p>
+              </article>
+              <article class="award-card">
+                <p class="award-year">2023</p>
+                <p class="award-name">国家二等奖</p>
+                <p class="award-event">全国大学生智能汽车竞赛</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- ============ STACK ============ -->
+          <section class="section reveal" data-section id="stack">
+            <div class="section-heading">
+              <p class="eyebrow">Stack</p>
+              <h2>技术栈</h2>
+              <p>VLA 训练部署与真机落地中实际使用的方法、工具与工程实践。</p>
+            </div>
+
+            <div class="systems-grid">
+              <article class="system-card">
+                <h3>VLA &amp; Policy Learning</h3>
+                <p>从预训练到真机部署的策略训练与后训练。</p>
+                <ul class="system-list">
+                  <li>π0.5 / π0.7 / openpi 二次开发</li>
+                  <li>SFT、条件化混训与异质数据集融合</li>
+                  <li>RECAP 后训练、DAgger 数据补采</li>
+                  <li>RTC 异步推理、Training RTC 复现</li>
+                  <li>Diffusion Policy、Flow Matching</li>
+                  <li>长时视觉记忆、Memory Tokenizer、Temporal Attention</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>Reinforcement Learning</h3>
+                <p>真机在线强化学习与策略改进。</p>
+                <ul class="system-list">
+                  <li>RLinf 框架、RLToken 算法</li>
+                  <li>TD3（Actor 输出完整动作）</li>
+                  <li>BC / PG 与 Delta、Smooth 损失</li>
+                  <li>Gating Head 分阶段接管</li>
+                  <li>DSRL / QGF / Flow-SDE / VINE 对比</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>Force &amp; Contact Control</h3>
+                <p>接触密集型任务的力觉闭环。</p>
+                <ul class="system-list">
+                  <li>六维力 / 力矩传感器数据接入</li>
+                  <li>（p_des, F）力位混合动作表示</li>
+                  <li>力历史编码与 MoE 特征融合</li>
+                  <li>导纳控制与 VLA 快慢双环</li>
+                  <li>200 Hz 力反馈内环、过载保护</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>World Model &amp; Loco-Manip</h3>
+                <p>面向空间感知与移动操作的表示学习。</p>
+                <ul class="system-list">
+                  <li>PointMap、PointFlow 三维表征</li>
+                  <li>Cosmos3-Nano 主干与模态路由 LoRA</li>
+                  <li>VGGT-OMEGA、AllTracker 伪标签</li>
+                  <li>Exo 演示数据生成与动作重定向</li>
+                  <li>Tracking-based RL、Unitree G1</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>Simulation &amp; Evaluation</h3>
+                <p>仿真数据工场与评测体系。</p>
+                <ul class="system-list">
+                  <li>IsaacLab / Isaac Sim、TiledCamera 并行渲染</li>
+                  <li>焊缝仿真数据工场与 Benchmark</li>
+                  <li>条件消融定位捷径学习</li>
+                  <li>RoboTwin 仿真评测</li>
+                  <li>成功率、吞吐量与流畅度指标</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>Engineering &amp; Deployment</h3>
+                <p>让策略在真机上稳定跑起来的工程能力。</p>
+                <ul class="system-list">
+                  <li>Python、C++、Linux、Docker</li>
+                  <li>PyTorch、FSDP 多节点训练</li>
+                  <li>数据采集规范与处理流水线</li>
+                  <li>手眼标定、相机与夹爪调试</li>
+                  <li>端侧模型部署（约 50M 参数）</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <p>郝越 Hao Yue · Embodied AI &amp; Robot Learning · Personal Portfolio</p>
+      </footer>
+    </div>
+
+    <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="素材查看">
+      <button class="viewer-close" id="viewerClose" type="button" aria-label="关闭">✕</button>
+      <div class="viewer-stage" id="viewerStage"></div>
+      <p class="viewer-cap" id="viewerCap"></p>
+    </div>
+
+    <script src="script.js?v=20260927-t"></script>
+  </body>
+</html>
