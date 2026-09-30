@@ -63,12 +63,10 @@
             />
 
             <h2>郝越</h2>
-            <p class="profile-role">Embodied AI Algorithm Engineer</p>
+            <p class="profile-role">求职意向：具身智能算法工程师</p>
 
             <p class="profile-summary">
-              哈尔滨工业大学航天学院控制科学与工程硕士（2027 届）。在具身智能创业公司完成 VLA
-              从数据采集、训练到真机部署的全流程落地，并做过在线强化学习微调、力觉闭环与机器人
-              世界模型方向的探索，关注数据分布、模型架构与执行反馈的闭环。
+              哈尔滨工业大学航天学院控制科学与工程硕士（2027 届），具身智能算法方向。
             </p>
 
             <dl class="profile-contact">
@@ -118,12 +116,8 @@
           <section class="section reveal" data-section id="overview">
             <div class="section-heading">
               <p class="eyebrow">Overview</p>
-              <h1>具身智能算法：从训练到真机</h1>
-              <p>
-                以 VLA 为主线，把数据采集、训练、异步推理与真机评测串成一条完整链路；
-                在线强化学习、力觉闭环与长时记忆等后训练方向也都在真机上验证过。
-                同时在做机器人世界模型与 Loco-Manipulation 的前沿探索。
-              </p>
+              <h1>具身智能算法：从模型研究到真机落地</h1>
+              <p>在具身智能创业公司完成 VLA 从数据采集、训练到真机部署的全流程落地，将异步推理与真机评测衔接为完整闭环；在线强化学习、力觉闭环与长时记忆等后训练方向均在真机上完成验证；研究方向亦覆盖机器人世界模型与 Loco-Manipulation，关注数据分布、模型架构与执行反馈的闭环。</p>
             </div>
 
             <div class="highlight-grid">
@@ -162,7 +156,7 @@
                   <span>2024.09 – 2027.06</span>
                   <span class="place">哈尔滨，中国</span>
                 </p>
-                <p class="edu-honor">航天学院 · 研究方向 VLA / 具身智能 · 特等学业奖学金</p>
+                <p class="edu-honor">研究方向 VLA / 具身智能 · 特等学业奖学金 ×2</p>
               </article>
 
               <article class="edu-card">
@@ -182,7 +176,7 @@
             <div class="section-heading">
               <p class="eyebrow">Internship</p>
               <h2>实习项目</h2>
-              <p>在某具身智能创业公司完成的五个方向，都是真机任务。</p>
+              <p>在某具身智能创业公司完成的五个方向，四个已在真机上验证，另一个在仿真中搭建数据工场与评测。</p>
             </div>
 
             <article class="project-card reveal" id="project-vla-deploy">
@@ -191,7 +185,7 @@
                   <h3>VLA 数采训练部署全流程</h3>
                   <span class="repo-flag">Full-stack</span>
                 </div>
-                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07</p>
               </div>
               <div class="project-body">
                 <p class="project-lede">
@@ -201,10 +195,6 @@
                   <li>搭建运控／数采 Docker 环境，制定数采规范，数据处理（过滤、子任务标注、速度重采样、转换），FSDP 多节点训练。</li>
                   <li>使用剩余末端路径长度构造 progress 监督并采用 RECAP 标注动作优势；针对失败迭代补采 DAgger 数据；针对开源、自采、Rollout 与 DAgger 中的数据来源、动作质量、任务设置等条件，参考 π0.7 的多元条件标注，有效混合异质数据集；调整 MIT ／ test ／ training-time RTC + Smoothing 异步推理参数，高频线性插值，优化一致性与流畅度。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>100%</strong><span>叠衣服 / 折纸盒 成功率</span></span>
-                  <span class="metric"><strong>2 类</strong><span>柔性 + 长程任务</span></span>
-                </div>
                 <div class="tag-row">
                   <span>π0.5</span>
                   <span>FSDP</span>
@@ -315,7 +305,7 @@
                   <h3>VLA + online RL 微调</h3>
                   <span class="repo-flag">RL</span>
                 </div>
-                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07</p>
               </div>
               <div class="project-body">
                 <p class="project-lede">
@@ -325,10 +315,6 @@
                   <li>SFT 使用主臂动作；RL 使用 TD3 算法，Actor 输出完整动作，在 BC／PG 基础上添加 Delta／Smooth 损失。</li>
                   <li>DAgger／Model 无缝切换；添加 Gating Head 选择性接管关键阶段；对参考／执行动作使用 RTC + Smoothing 优化，缓解控制／推理延迟带来的抖动、方便 stride=2 重采样；对损失权重、回放采样策略、奖励、折扣率等参数调优。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>5% → 100%</strong><span>套柱成功率</span></span>
-                  <span class="metric"><strong>~100</strong><span>微调 episode</span></span>
-                </div>
                 <div class="tag-row">
                   <span>RLinf</span>
                   <span>RLToken</span>
@@ -368,7 +354,7 @@
                   <h3>Force VLA 设计</h3>
                   <span class="repo-flag">Force</span>
                 </div>
-                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07</p>
               </div>
               <div class="project-body">
                 <p class="project-lede">
@@ -378,10 +364,6 @@
                   <li>基于 π0.5 构建，将 30 帧 force history 通过 MLP 投影（零初始化）拼接到 VLM prefix，设计 MoE 结构融合 force 信息；使用实际指令位置／接触力 (p_des, F) 混合动作表示并联合去噪，把 force 同时作为 observation 和 action target。</li>
                   <li>数采和推理阶段均在 Z 轴方向采用期望力导纳控制，记录实际指令 p_des = p_master + Δp 和经过低通滤波、执行器补偿的 F（30 Hz）；推理阶段 VLA 外环输出作为目标力 F 与指令位置 p_des，导纳内环（200 Hz）实时跟踪目标力。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>200 Hz</strong><span>导纳控制内环</span></span>
-                  <span class="metric"><strong>6 轴</strong><span>末端力 / 力矩</span></span>
-                </div>
                 <div class="tag-row">
                   <span>六维力 F/T</span>
                   <span>导纳控制</span>
@@ -443,7 +425,7 @@
                   <h3>Memory VLA 设计</h3>
                   <span class="repo-flag">Memory</span>
                 </div>
-                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07</p>
               </div>
               <div class="project-body">
                 <p class="project-lede">
@@ -453,10 +435,6 @@
                   <li>保留当前完整视觉 tokens，将每个历史 frame 压缩为单个 token，使 Action Expert 通过原生 Attention 读取。</li>
                   <li>采用「冻结 VLA 训练 memory tokenizer + 缓存 memory features + 任务级 VLA finetuning」两阶段流程。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>25 s</strong><span>记忆窗口</span></span>
-                  <span class="metric"><strong>1 token</strong><span>每个历史帧</span></span>
-                </div>
                 <div class="tag-row">
                   <span>π0.5</span>
                   <span>NativeMEM</span>
@@ -464,7 +442,7 @@
                   <span>Temporal Attention</span>
                 </div>
                 <div class="media-grid">
-                  <figure class="media-card is-portrait">
+                  <figure class="media-card">
                     <div class="media-frame" data-view>
                       <video preload="none" playsinline muted loop poster="assets/images/posters/memory-flower.jpg">
                           <source src="assets/videos/memory-flower.mp4" type="video/mp4" />
@@ -485,7 +463,7 @@
                   <h3>焊缝观测 Next-Best-View 模型优化</h3>
                   <span class="repo-flag">Perception</span>
                 </div>
-                <p class="project-role">实习项目 · 2026.01 – 2026.07 · 北京，中国</p>
+                <p class="project-role">实习项目 · 2026.01 – 2026.07</p>
               </div>
               <div class="project-body">
                 <p class="project-lede">
@@ -495,10 +473,6 @@
                   <li>使用 IsaacLab 搭建焊缝仿真数据工场和评测 Benchmark，TiledCamera 并行渲染加速约 10 倍。</li>
                   <li>通过条件消融定位视觉特征被 state／seam 绕过的 shortcut 问题，设计层级式 K/V Injection，将 MapAnything 12 层几何表征逐层注入 Action Head，并以 Focal Loss 优化长尾样本，使无碰撞观测成功率提升 20%。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>+20%</strong><span>无碰撞观测成功率</span></span>
-                  <span class="metric"><strong>~10×</strong><span>并行渲染加速</span></span>
-                </div>
                 <div class="tag-row">
                   <span>IsaacLab</span>
                   <span>TiledCamera</span>
@@ -540,16 +514,12 @@
               </div>
               <div class="project-body">
                 <p class="project-lede">
-                  针对 Ego 数据以及 Loco-Manip 任务中的视角运动问题以及空间感知的需求，将 PointMap 和 PointFlow 作为核心世界动态表示方法，统一建模 RGB、Point 与 Action，使动作生成和未来状态预测共享共享时空表示。
+                  针对 Ego 数据以及 Loco-Manip 任务中的视角运动问题以及空间感知的需求，将 PointMap 和 PointFlow 作为核心世界动态表示方法，统一建模 RGB、Point 与 Action，使动作生成和未来状态预测共享时空表示。
                 </p>
                 <ul class="project-list">
                   <li>以 Cosmos3-Nano 为主干，保留其 RGB（Wan2.2）与 Action 分支，引入基于 MotionCrafter 的 PointMap、PointFlow 编解码分支，并通过模态路由 LoRA 进行参数高效微调。</li>
                   <li>使用 VGGT-OMEGA 与 AllTracker 为数据生成三维伪标签，采用「仿真双模态训练、Ego／Robot 数据三模态训练、Action 四模态训练」的分阶段训练策略。</li>
                 </ul>
-<div class="metric-row">
-                  <span class="metric"><strong>4 模态</strong><span>Action 阶段训练</span></span>
-                  <span class="metric"><strong>3 类</strong><span>数据源</span></span>
-                </div>
                 <div class="tag-row">
                   <span>PointMap</span>
                   <span>PointFlow</span>
@@ -558,6 +528,22 @@
                   <span>VGGT-OMEGA</span>
                 </div>
                 <div class="media-grid">
+                  <figure class="media-card media-full-row">
+                    <div class="media-frame media-figure" data-view>
+                      <img
+                        src="assets/images/figures/unified-world-model.png"
+                        alt="以 PointFlow 为世界表征的统一世界模型架构图"
+                        width="1802"
+                        height="922"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption>
+                      <span class="cap-label">统一世界模型架构</span>
+                      <span class="cap-src">RGB、PointMap、PointFlow 与 Action 的共享世界模型</span>
+                    </figcaption>
+                  </figure>
                   <figure class="media-card">
                     <div class="media-frame" data-view>
                       <video preload="none" playsinline muted loop poster="assets/images/posters/pointflow.jpg">
@@ -594,15 +580,8 @@
               </div>
               <div class="project-body">
                 <p class="project-lede">
-                  参考 GRAIL 数据生成管线（3D 资产 → HOI 视频 → 4D 联合优化），产出人体全身移动操作轨迹，并重定向至 G1；以 Tracking-based RL 范式，在 SONIC 基座上开展基于状态的 RL，训练多物体抓取通用策略，为统一世界模型产出演示数据。
+                  参考 GRAIL 数据生成管线（3D 资产 → HOI 视频 → 4D 联合优化），产出人体全身移动操作轨迹，并重定向至 G1；以 Tracking-based RL 范式，在 SONIC 基座上开展基于状态的 RL，结合轨迹跟踪与任务奖励，训练多物体抓取通用策略，通过优化奖励设置提升成功率至 70% 左右，为上述统一模型产出演示数据。
                 </p>
-                <ul class="project-list">
-                  <li>结合轨迹跟踪与任务奖励训练多物体抓取通用策略，通过优化奖励设置把成功率提升至 70% 左右。</li>
-                </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>~70%</strong><span>多物体抓取成功率</span></span>
-                  <span class="metric"><strong>G1</strong><span>动作重定向</span></span>
-                </div>
                 <div class="tag-row">
                   <span>GRAIL</span>
                   <span>SONIC</span>
@@ -662,11 +641,6 @@
                   <li>使用 ZED2 双目相机配合手眼标定与 FoundationStereo 立体深度估计获取点云。</li>
                   <li>使用 Minkowski-Engine 编码稀疏体素，接 Diffusion Policy 输出动作块；程序化演示动作，采用多种数据增强，模型参数约 50M 可端侧部署。</li>
                 </ul>
-                <div class="metric-row">
-                  <span class="metric"><strong>全国第 1</strong><span>真机决赛</span></span>
-                  <span class="metric"><strong>第 2</strong><span>RoboTwin 仿真赛</span></span>
-                  <span class="metric"><strong>50M</strong><span>端侧可部署</span></span>
-                </div>
                 <div class="tag-row">
                   <span>Diffusion Policy</span>
                   <span>FoundationStereo</span>
@@ -744,8 +718,7 @@
                 <p class="award-year">2025</p>
                 <p class="award-name">国家总冠军 · 挑战之星</p>
                 <p class="award-event">
-                  挑战杯挑战赛“端侧可部署的双臂操作算法设计” · 真机决赛全国第 1 名 ·
-                  RoboTwin 仿真赛第 2 名
+                  挑战杯挑战赛“端侧可部署的双臂操作算法” · 真机决赛全国第 1 名 · RoboTwin 仿真赛第 2 名
                 </p>
               </article>
               <article class="award-card">
@@ -769,92 +742,67 @@
           <!-- ============ STACK ============ -->
           <section class="section reveal" data-section id="stack">
             <div class="section-heading">
-              <p class="eyebrow">Stack</p>
               <h2>技术栈</h2>
-              <p>VLA 训练部署与真机落地中实际使用的方法、工具与工程实践。</p>
             </div>
 
             <div class="systems-grid">
               <article class="system-card">
-                <h3>VLA &amp; Policy Learning</h3>
-                <p>从预训练到真机部署的策略训练与后训练。</p>
+                <h3>编程与工程基础</h3>
                 <ul class="system-list">
-                  <li>π0.5 / π0.7 / openpi 二次开发</li>
-                  <li>SFT、条件化混训与异质数据集融合</li>
-                  <li>RECAP 后训练、DAgger 数据补采</li>
-                  <li>RTC 异步推理、Training RTC 复现</li>
+                  <li>Python / C++ / Linux / Git</li>
+                  <li>Docker、Shell 与实验环境管理</li>
+                  <li>数据处理、脚本开发与工程调试</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>深度学习与模型训练</h3>
+                <ul class="system-list">
+                  <li>PyTorch / Transformers</li>
+                  <li>VLA、Transformer 与多模态建模</li>
+                  <li>SFT、LoRA、FSDP 与分布式训练</li>
+                </ul>
+              </article>
+
+              <article class="system-card">
+                <h3>策略学习与强化学习</h3>
+                <ul class="system-list">
+                  <li>Behavior Cloning、Policy Gradient</li>
                   <li>Diffusion Policy、Flow Matching</li>
-                  <li>长时视觉记忆、Memory Tokenizer、Temporal Attention</li>
+                  <li>在线强化学习、DAgger 与策略微调</li>
                 </ul>
               </article>
 
               <article class="system-card">
-                <h3>Reinforcement Learning</h3>
-                <p>真机在线强化学习与策略改进。</p>
+                <h3>机器人感知与表示</h3>
                 <ul class="system-list">
-                  <li>RLinf 框架、RLToken 算法</li>
-                  <li>TD3（Actor 输出完整动作）</li>
-                  <li>BC / PG 与 Delta、Smooth 损失</li>
-                  <li>Gating Head 分阶段接管</li>
-                  <li>DSRL / QGF / Flow-SDE / VINE 对比</li>
+                  <li>RGB / RGB-D、多视角视觉与深度估计</li>
+                  <li>点云处理、三维表征与目标跟踪</li>
+                  <li>多模态特征融合与伪标签生成</li>
                 </ul>
               </article>
 
               <article class="system-card">
-                <h3>Force &amp; Contact Control</h3>
-                <p>接触密集型任务的力觉闭环。</p>
+                <h3>机器人控制与执行</h3>
                 <ul class="system-list">
-                  <li>六维力 / 力矩传感器数据接入</li>
-                  <li>（p_des, F）力位混合动作表示</li>
-                  <li>力历史编码与 MoE 特征融合</li>
-                  <li>导纳控制与 VLA 快慢双环</li>
-                  <li>200 Hz 力反馈内环、过载保护</li>
+                  <li>运动学、轨迹控制与动作重定向</li>
+                  <li>力觉感知、阻抗控制与导纳控制</li>
+                  <li>异步推理、动作平滑与闭环执行</li>
                 </ul>
               </article>
 
               <article class="system-card">
-                <h3>World Model &amp; Loco-Manip</h3>
-                <p>面向空间感知与移动操作的表示学习。</p>
+                <h3>仿真与真机部署</h3>
                 <ul class="system-list">
-                  <li>PointMap、PointFlow 三维表征</li>
-                  <li>Cosmos3-Nano 主干与模态路由 LoRA</li>
-                  <li>VGGT-OMEGA、AllTracker 伪标签</li>
-                  <li>Exo 演示数据生成与动作重定向</li>
-                  <li>Tracking-based RL、Unitree G1</li>
-                </ul>
-              </article>
-
-              <article class="system-card">
-                <h3>Simulation &amp; Evaluation</h3>
-                <p>仿真数据工场与评测体系。</p>
-                <ul class="system-list">
-                  <li>IsaacLab / Isaac Sim、TiledCamera 并行渲染</li>
-                  <li>焊缝仿真数据工场与 Benchmark</li>
-                  <li>条件消融定位捷径学习</li>
-                  <li>RoboTwin 仿真评测</li>
-                  <li>成功率、吞吐量与流畅度指标</li>
-                </ul>
-              </article>
-
-              <article class="system-card">
-                <h3>Engineering &amp; Deployment</h3>
-                <p>让策略在真机上稳定跑起来的工程能力。</p>
-                <ul class="system-list">
-                  <li>Python、C++、Linux、Docker</li>
-                  <li>PyTorch、FSDP 多节点训练</li>
-                  <li>数据采集规范与处理流水线</li>
-                  <li>手眼标定、相机与夹爪调试</li>
-                  <li>端侧模型部署（约 50M 参数）</li>
+                  <li>IsaacLab / Isaac Sim / RoboTwin</li>
+                  <li>数据采集、清洗、标注与评测</li>
+                  <li>手眼标定、相机调试与真机部署</li>
                 </ul>
               </article>
             </div>
           </section>
         </div>
       </main>
-
-      <footer class="site-footer">
-        <p>郝越 Hao Yue · Embodied AI &amp; Robot Learning · Personal Portfolio</p>
-      </footer>
     </div>
 
     <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="素材查看">
