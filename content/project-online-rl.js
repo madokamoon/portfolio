@@ -13,8 +13,9 @@ window.portfolioProjects["project-online-rl"] = {
     { title: `门控机制`, text: `训练 Gating Head 选择性接管关键阶段。工程上实现 DAgger／Model 无缝切换` },
     { title: `动作优化`, text: `对参考／执行动作使用 RTC + Smoothing，缓解控制与推理延迟引起的抖动，支持 stride=2 重采样。` },
     { title: `参数调优`, text: `寻找最优损失权重、回放采样策略、奖励、折扣率。` },
+    { title: `方法对比`, text: `在真机和仿真中对比 DSRL、QGF、Flow-SDE、VINE 等算法。` },
   ],
-  result: `约 100 episode 微调后，套柱成功率从 5% 提升至 100%；并在真机和仿真中对比 DSRL、QGF、Flow-SDE、VINE 等算法。该结果对应这一特定精细操作任务。`,
+  result: `约 100 episode 微调后，套柱成功率从 5% 提升至 100%，Dagger介入率从 50% 降至 0%。`,
   resume: {
     intro: `针对 SFT 性能上限，基于 RLinf 框架和 RLToken 算法，使用约 100 episode，将 mm 级精细操作任务[套柱]成功率从 5% 提升至 100%，并在真机／仿真中对比了 DSRL、QGF、Flow-SDE、VINE 等算法。`,
     bullets: [
