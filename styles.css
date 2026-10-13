@@ -532,32 +532,27 @@ body {
 }
 
 .highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
   padding: 0.9rem;
   background: var(--panel-soft);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-md);
 }
 
-.highlight-value {
+.highlight-title {
   color: var(--heading);
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
-/* 第一张卡的内容是四个方向名而不是数字，用列表字号避免撑破卡片 */
-.highlight-value.is-list {
-  font-size: 1rem;
-  line-height: 1.42;
-  letter-spacing: 0;
-}
-
-.highlight-label {
-  margin-top: 0.2rem;
+.highlight-detail {
+  margin-top: auto;
   color: var(--muted);
-  font-size: 0.79rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.55;
 }
 
 .repo-grid {
@@ -779,6 +774,103 @@ body {
   height: 4px;
   border-radius: 50%;
   background: var(--border);
+}
+
+.project-story {
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.project-story-content {
+  display: grid;
+}
+
+.project-story-section {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.65rem 0;
+}
+
+.project-story-section + .project-story-section {
+  border-top: 1px solid var(--border-soft);
+}
+
+.project-story-section h4 {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.project-story-section p,
+.project-story-section li {
+  color: var(--text);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.project-story-list {
+  display: grid;
+  gap: 0.38rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-story .project-story-list li {
+  padding-left: 0.85rem;
+}
+
+.project-story .project-story-list li::before {
+  left: 0;
+  top: 0.68em;
+  background: var(--accent);
+}
+
+.project-story-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.resume-original {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.resume-original summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.4rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.resume-original summary::-webkit-details-marker {
+  display: none;
+}
+
+.resume-original summary::after {
+  content: "+";
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.resume-original[open] summary::after {
+  content: "−";
+}
+
+.resume-original-content {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0 0 0.8rem;
 }
 
 .tag-row {
@@ -1027,31 +1119,6 @@ body {
 
 .viewer-cap b {
   color: #fffdf8;
-}
-
-/* ---------- more projects note ---------- */
-
-.more-projects {
-  display: grid;
-  gap: 0.3rem;
-  padding: 1.05rem 1.2rem;
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-md);
-  background: var(--panel-soft);
-}
-
-.more-projects-title {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-
-.more-projects p:last-child {
-  color: var(--text);
-  font-size: 0.85rem;
-  line-height: 1.7;
 }
 
 /* ---------- publications ---------- */
